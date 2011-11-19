@@ -56,6 +56,7 @@ ROOT_URLCONF = 'kylegibson.urls'
 
 TEMPLATE_DIRS = (
     PROJECT_ROOT / "apps",
+    PROJECT_ROOT / "templates",
 )
 
 INSTALLED_APPS = (
