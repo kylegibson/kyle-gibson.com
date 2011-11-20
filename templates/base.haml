@@ -2,8 +2,21 @@
 %html
 	%head
 		%meta{'http-equiv': 'Content-Type', 'content': 'text/html; charset=UTF-8'}
+		%link{'href' : 'http://fonts.googleapis.com/css?family=Droid+Sans:400,700', 'rel' : 'stylesheet', 'type' : 'text/css'}
+		%link{'href' : '{{ STATIC_URL }}css/base.css', 'rel' : 'stylesheet', 'type' : 'text/css'}
 		%title kylegibson {% block title %}{% endblock %}
 	%body
-		%div
-			{% block content %}
-			{% endblock %}
+		#page-container
+			%header#page-header
+				{% block header %}
+					%h1 kylegibson
+				{% endblock %}
+			#page-content
+				{% block content %}
+				{% endblock %}
+			%footer#page-footer
+				{% block footer %}
+					%p Footer
+				{% endblock %}
+
+
