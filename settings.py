@@ -26,10 +26,10 @@ USE_L10N = True # Format dates to current locale
 MEDIA_ROOT = '' 
 MEDIA_URL = ''
 
-STATIC_ROOT = PROJECT_ROOT / "assets"
+#STATIC_ROOT = PROJECT_ROOT / "static"
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
-STATICFILES_DIRS = ()
+STATICFILES_DIRS = [PROJECT_ROOT / "static"]
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
