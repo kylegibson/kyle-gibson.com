@@ -24,10 +24,10 @@ class Post(models.Model):
     def title_slug(self):
         return slugify(self.title)
 
-    def save(self):
+    def save(self, *args, **kwargs):
         import markdown
         self.body_html = markdown.markdown(self.body_mkd)
-        super(Post, self).save()
+        return super(Post, self, *args, **kwargs).save()
 
     def was_published_today(self):
         return self.pub_date.date() == datetime.date.today()
@@ -37,6 +37,6 @@ class Post(models.Model):
         return ('blog.views.details', [str(self.id)])
 
     def get_absolute_url_seo(self):
-        return "%s-%s" % (self.get_absolute_url(), self.title_slug)
+        return "%s-%s" % (self.get_absolute_url(), self.title_slug())
 
 
