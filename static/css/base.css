@@ -1,3 +1,7 @@
+body {
+	font-family: 'Droid Sans', sans-serif;
+	background: #ccc;
+}
 #page-container {
 	margin: 0 auto;
 	width: 600px;
