@@ -1,0 +1,17 @@
+{% extends "base.haml" %}
+
+{% block title %}{{ block.super }} | {{ post.title }} {% endblock %}
+
+{% block content %}
+	{% if post %}
+		%section
+			%article
+				%h1= post.title
+				.info
+					%span= testing_one_two_three
+					%span.date= post.pub_date
+					%a.permalink{'href' : '{{ post.get_absolute_url_seo }}'} permalink
+				.body
+					%span.html= post.body_html|safe
+	{% endif %}
+{% endblock %}

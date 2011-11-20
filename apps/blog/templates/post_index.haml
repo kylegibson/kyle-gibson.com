@@ -4,10 +4,15 @@
 
 {% block content %}
 	{% if latest_posts_list %}
-		%ul
+		%section
 			{% for post in latest_posts_list %}
-				%li
-					%a{'href' : "/foo"}= post.title|safe
+				%article
+					%h1
+						%a{'href' : '{{ post.get_absolute_url_seo }}'}= post.title
+					.info
+						%span.date= post.pub_date
+					.body
+						%span.html= post.body_html|safe
 			{% endfor %}
 	{% endif %}
 {% endblock %}
