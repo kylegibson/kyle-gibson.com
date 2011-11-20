@@ -33,10 +33,18 @@ STATICFILES_DIRS = [PROJECT_ROOT / "static"]
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-SECRET_KEY = '_@snir48qagdu2__bbfv9r!2pib+yw9(w01(f--@vix0d_l!#c'
+try:
+    SECRET_KEY = (PROJECT_ROOT / "SECRET_KEY").bytes().strip()
+except IOError:
+    try:
+        import string
+        from random import choice
+        SECRET_KEY = ''.join([choice(string.letters + string.digits + string.punctuation) for i in range(50)])
+        (PROJECT_ROOT / "SECRET_KEY").write_bytes(SECRET_KEY)
+    except IOError:
+        pass
 
 TEMPLATE_LOADERS = (
     'djaml.filesystem',
