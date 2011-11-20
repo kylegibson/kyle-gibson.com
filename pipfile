@@ -7,7 +7,9 @@ django-tastypie==0.9.10
 hamlpy==0.4
 mimeparse==0.1.3
 -e git://github.com/kylegibson/path.py.git@56a336674abf44d6c23f7a724aeccda7d22e9fce#egg=path.py-dev
+pyparsing==1.5.6
 pysqlite==2.6.3
 python-dateutil==1.5
 python-digest==1.7
+scss==0.8.70
 wsgiref==0.1.2
