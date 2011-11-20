@@ -21,6 +21,9 @@ class Post(models.Model):
     def __unicode__(self):
         return self.title
 
+    def title_slug(self):
+        return slugify(self.title)
+
     def save(self):
         import markdown
         self.body_html = markdown.markdown(self.body_mkd)
@@ -34,6 +37,6 @@ class Post(models.Model):
         return ('blog.views.details', [str(self.id)])
 
     def get_absolute_url_seo(self):
-        return "%s-%s" % (self.get_absolute_url(), slugify(self.title))
+        return "%s-%s" % (self.get_absolute_url(), self.title_slug)
 
 
