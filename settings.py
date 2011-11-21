@@ -60,7 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'kylegibson.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     PROJECT_ROOT / "apps",
@@ -78,6 +78,7 @@ INSTALLED_APPS = (
     'south',
     'tastypie',
     'blog',
+    'django_extensions',
 )
 
 LOGGING = {
