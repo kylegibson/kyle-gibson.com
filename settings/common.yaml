@@ -1,0 +1,43 @@
+pythonpath:
+    - $PROJECT_ROOT/apps
+debug: False
+secret_key_file: $PROJECT_ROOT/SECRET_KEY
+root_urlconf: urls
+databases:
+    default:
+        engine: django.db.backends.sqlite3
+        name: db/dev.db
+time_zone: America/Detroit
+site_id: 1
+use_i18n: False
+# use_l10n: False
+static_root: $PROJECT_ROOT/static
+static_url: /static/
+admin_media_prefix: /static/admin/
+short_date_format: Y-m-d
+staticfiles_dirs:
+    - $PROJECT_ROOT/static
+staticfiles_finders:
+    - django.contrib.staticfiles.finders.FileSystemFinder
+    - django.contrib.staticfiles.finders.AppDirectoriesFinder
+template_dirs:
+    - $PROJECT_ROOT/apps
+    - $PROJECT_ROOT/templates
+template_loaders:
+    - djaml.filesystem
+    - django.template.loaders.filesystem.Loader
+    - django.template.loaders.app_directories.Loader
+installed_apps:
+    - django_extensions
+    - django.contrib.auth
+    - django.contrib.contenttypes
+    - django.contrib.sessions
+    - django.contrib.sites
+    - django.contrib.messages
+    - django.contrib.staticfiles
+    - django.contrib.admin
+    - south
+    - tastypie
+    - blog
+
+
