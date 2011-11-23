@@ -24,7 +24,7 @@ def read_write_secret_key_file(settings):
 context = {
     "PROJECT_ROOT" : path(__file__).abspath().dirname().dirname()
 }
-settings = load_yaml_settings(context, "settings/config.yaml")
+settings = load_yaml_settings(context, "settings/common.yaml")
 if "SECRET_KEY" not in settings and "SECRET_KEY_FILE" in settings:
     read_write_secret_key_file(settings)
 if "pythonpath" in settings:
