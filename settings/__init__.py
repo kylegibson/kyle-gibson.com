@@ -13,19 +13,19 @@ def load_yaml_settings(context, *paths):
     return settings
 def read_write_secret_key_file(settings):
     try:
-        settings["SECRET_KEY"] = path("SECRET_KEY_FILE").bytes().strip()
+        settings["secret_key"] = path(settings["secret_key_file"]).bytes().strip()
     except IOError:
         try:
             from random import choice
-            settings["SECRET_KEY"] = ''.join([choice(string.letters + string.digits + string.punctuation) for i in range(50)])
-            path(settings["SECRET_KEY_FILE"]).write_bytes(settings["SECRET_KEY"])
+            settings["secret_key"] = ''.join([choice(string.letters + string.digits + string.punctuation) for i in range(50)])
+            path(settings["secret_key_file"]).write_bytes(settings["secret_key"])
         except IOError:
             pass
 context = {
     "PROJECT_ROOT" : path(__file__).abspath().dirname().dirname()
 }
 settings = load_yaml_settings(context, "settings/common.yaml")
-if "SECRET_KEY" not in settings and "SECRET_KEY_FILE" in settings:
+if "secret_key" not in settings and "secret_key_file" in settings:
     read_write_secret_key_file(settings)
 if "pythonpath" in settings:
     sys.path.extend([pp for pp in settings["pythonpath"]])
