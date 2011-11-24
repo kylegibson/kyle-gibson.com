@@ -1,0 +1,14 @@
+[
+  {
+    "pk": 1, 
+    "model": "blog.post", 
+    "fields": {
+      "author": 1, 
+      "body_mkd": "", 
+      "title": "Foo Bar is good", 
+      "body_html": "Welcome to my site", 
+      "visible": true, 
+      "pub_date": "2011-11-18 15:21:27"
+    }
+  }
+]
