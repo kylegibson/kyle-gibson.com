@@ -10,6 +10,9 @@ import datetime
 #    posts = models.ManyToManyField(_('Post'))
 
 class Post(models.Model):
+    """
+    #>>> p = Post.objects.create(visible=True, title="Foo bar is Good"
+    """
     visible   = models.BooleanField(_('Visible'))
     title     = models.CharField(_('Title'), max_length=256)
     author    = models.ForeignKey(User)
@@ -27,7 +30,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         import markdown
         self.body_html = markdown.markdown(self.body_mkd)
-        return super(Post, self, *args, **kwargs).save()
+        return super(Post, self).save(*args, **kwargs)
 
     def was_published_today(self):
         return self.pub_date.date() == datetime.date.today()
