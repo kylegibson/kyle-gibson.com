@@ -11,7 +11,7 @@ time_zone: America/Detroit
 site_id: 1
 use_i18n: False
 # use_l10n: False
-static_root: $PROJECT_ROOT/static
+static_root: $PROJECT_ROOT/staticroot
 static_url: /static/
 admin_media_prefix: /static/admin/
 short_date_format: Y-m-d
