@@ -4,6 +4,7 @@ PyYAML==3.10
 South==0.7.3
 djaml==1.0
 django-extensions==0.7.1
+-e git://github.com/kylegibson/django_settings_yaml.git@61236c220ee3d0774ebc08eb43f69975ee16d614#egg=django_settings_yaml-dev
 django-tastypie==0.9.10
 hamlpy==0.4
 mimeparse==0.1.3
