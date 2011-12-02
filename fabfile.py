@@ -34,6 +34,8 @@ def foo():
 #    return (local_run if env.local else remote_run)(*args, **kwargs)
 
 def list_to_shell_args(args):
+    if len(args) == 1:
+        return args[0]
     return " ".join([pipes.quote(arg) for arg in args])
 
 def mkdirs(*directories):
@@ -56,6 +58,10 @@ def django_admin(*args):
     params = list_to_shell_args(args)
     with cd(env.path), prefix("pybrew venv use %(venv)s" % env):
         run("PYTHONPATH=. DJANGO_SETTINGS_MODULE=settings django-admin.py %s" % params)
+
+@task
+def backup_database():
+    django_admin("dumpdata blog --indent 2")
 
 @task
 def deploy():
